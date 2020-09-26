@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Zestawienie
+<style>
+    .center {
+        margin: auto;
+        width: 60%;
+        border: 3px solid #2c7a99;
+        padding: 10px;
+    }
+
+    .center2 {
+        margin: auto;
+        width: 60%;
+        padding: 10px;
+    }
+</style>
+<div class="center">
+    Podsumowanie Zestawienia Gotówki:
+    <strong>@Model.PelnaCena</strong>
+</div>
+<form asp-controller="Home" asp-action="Zakonczenie">
+    <input type="submit" id="zapisz" value="Zapisz" />
+</form>
+
+<form asp-controller="Home" asp-action="powrotDoZestawienie">
+    <input type="submit" id="popraw" value="Popraw" />
+</form>

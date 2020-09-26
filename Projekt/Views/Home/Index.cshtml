@@ -1,0 +1,34 @@
+﻿@model Dane
+@using Projekt.Models
+
+<style>
+    .center {
+        margin: auto;
+        width: 60%;
+        border: 3px solid #2c7a99;
+        padding: 10px;
+    }
+    .center2{
+        margin: auto;
+        width: 60%;
+        padding: 10px;
+    }
+</style>
+@{ if (ViewBag.Error != null || ViewBag.NowaFirmaInfo!= null || ViewBag.Info != null) {
+    <div class="center2">
+        <h4 style="font-style:normal; color:red">@ViewBag.Error</h4>
+        <h4 style="font-style:normal; color:deeppink">@ViewBag.NowaFirmaInfo</h4>
+        <h4 style="font-style:normal; color:deeppink">@ViewBag.Info</h4>
+    </div>
+<br />
+}
+    }
+    <div class="center"> Wybierz Firmę oraz Rodzaj Waluty. Jeśli wybrana firma nie znajduje się na liście przejdź do zakładki Dodaj Firmę</div>
+    </br>
+    <div class="center">
+        <form asp-controller="Home" asp-action="CollectCompanyName">
+            @Html.DropDownListFor(m => m.WybranaFirma, new SelectList(Model.Firmy), "WybierzFirme")
+            @Html.DropDownListFor(m => m.WybranaWaluta, new SelectList(Model.Waluty), "WybierzWalute")
+            <input type="submit" value="Submit" />
+        </form>
+    </div>

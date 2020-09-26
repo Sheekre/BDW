@@ -1,0 +1,56 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Zestawienie
+@using Microsoft.AspNetCore.Http;
+
+<style>
+    .center {
+        margin: auto;
+        width: 60%;
+        border: 3px solid #2c7a99;
+        padding: 10px;
+    }
+    .center2 {
+        margin: auto;
+        width: 60%;
+        padding: 10px;
+    }
+    #siteInfo {
+        text-align: center
+    }
+
+    p, input {
+        display: inline-block
+    }
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+</style>
+<h2>Wybrana firma: <strong>@ViewBag.NazwaFirmy</strong></h2>
+<h3>Wybrana Waluta: <strong>@ViewBag.NazwaWaluty</strong></h3>
+
+<div class="center">
+    Jesli w danym dniu nie było przychodów z danej waluty proszę wpisać 0. Wszystkie pola muszą pozostać uzupełnione!
+    <form asp-controller="Home" asp-action="Podsumowanie">
+        @foreach (var item in Model.Nominaly)
+        {
+
+            <table class="center2">
+                <tr>
+                    <td class="text-center"> <strong> @item.Value  @Model.wybranaWaluta</strong></td>
+                </tr>
+                <tr>
+                    <td cclass="text-center"><input type="text" placeholder="" name="@item.Key" required></td>
+                </tr>
+                <br />
+            </table>
+
+        }
+        <input type="submit" id="podsumowanie" value="Do Podsumowania" />
+    </form> 
+    </div>

@@ -1,0 +1,45 @@
+﻿
+@model Firmy
+    <style>
+        .center {
+            margin: auto;
+            width: 60%;
+            border: 3px solid #2c7a99;
+            padding: 10px;
+        }
+        #siteInfo {
+            text-align: center
+        }
+
+        p, input {
+            display: inline-block
+        }
+    </style>
+<form asp-controller="Home" asp-action="AddCompany" method="post">
+    <div class="center">
+        <div id="siteInfo">
+            <label for="uname"><b>Nazwa: </b></label></br>
+            <input type="text" placeholder="Podaj Nazwe Firmy" name="txtNazwa" required>
+            </br>
+            <label for="adr"><b>Adres: </b></label></br>
+            <input type="text" placeholder="Podaj Nazwe Ulicy" name="txtAdres" required>
+            </br>
+            <label for="mia"><b>Miasto: </b></label></br>
+            <input type="text" placeholder="Podaj Miasto" name="txtMiasto" required>
+            </br>
+            <label for="pocz"><b>Kod Pocztowy: </b></label></br>
+            <input type="text" placeholder="Podaj Kod Pocztowy" name="txtKod" required>
+            </br>
+            <label for="ban"><b>Bank: </b></label></br>
+            <input type="text" placeholder="Podaj Nazwe Banku" name="txtBank" required>
+            </br>
+            <label for="kon"><b>Podaj Numer Konta</b></label></br>
+            <input type="text" placeholder="Podaj Numer Konta" name="txtKonto" required>
+            </br>
+            </div>
+            <input type="submit" id="zapisz" value="Zapisz" />
+        </div>
+</form>
+<form asp-controller="Home" asp-action="Index">
+    <input type="submit" id="Powrot" value="Powrot" />
+    </form>
